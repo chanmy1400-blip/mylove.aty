@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Girlfriend?</title>
+    <style>
+        /* ဖုန်းမျက်နှာပြင် အလယ်ဗဟိုမှာ ပေါ်စေဖို့ */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffe6e6;
+            box-sizing: border-box;
+        }
+
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 400px; /* ဖုန်းအတွက် အကျယ်အဝန်း ကန့်သတ်ချက် */
+        }
+
+        /* ပုံကို အလယ်ပို့ပြီး အရွယ်အစား ညှိထားပါတယ် */
+        img {
+            width: 180px; /* အရွယ်အစား နည်းနည်း လျှော့ထားပါတယ် */
+            height: auto;
+            display: block;
+            margin: 0 auto 20px auto; 
+            border-radius: 15px;
+        }
+
+        /* စာလုံးကို နည်းနည်း သေးထားပါတယ် */
+        h1 {
+            color: #d63384;
+            font-size: 1.8rem; /* ၂.၅ ကနေ ၁.၈ ကို လျှော့လိုက်ပါတယ် */
+            margin-bottom: 30px;
+            line-height: 1.3;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap; /* Button ကြီးလာရင် အောက်ဆင်းသွားအောင် */
+        }
+
+        button {
+            border: none;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        #yesBtn {
+            background-color: #28a745;
+            color: white;
+        }
+
+        #noBtn {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHY5bXF6OHR6eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute Valentine">
+        
+        <h1 id="question">Hey Ju Ju </h1>
+        <h1 id="question">Will you be my Girlfriend?❤️</h2>
+
+        <div class="buttons">
+            <button id="yesBtn" onclick="celebrate()">Yes</button>
+            <button id="noBtn" onclick="growYes()">No</button>
+        </div>
+    </div>
+
+    <script>
+        let yesSize = 1;
+        let noTexts = ["သေချာလား?", "ထပ်စဉ်းစားပါဦး", "တကယ်ကြီးလား??", "စိတ်မကောင်းဘူးနော်", "Yes ပဲ နှိပ်ပါတော့!", "Please!"];
+        let noClickCount = 0;
+
+        function growYes() {
+            // Yes button ကို တဖြည်းဖြည်း ကြီးလာအောင် လုပ်တာပါ
+            yesSize += 0.4;
+            const yesBtn = document.getElementById('yesBtn');
+            yesBtn.style.fontSize = yesSize + "rem";
+            yesBtn.style.padding = (yesSize * 12) + "px " + (yesSize * 25) + "px";
+
+            // No button စာသား ပြောင်းဖို့
+            if (noClickCount < noTexts.length) {
+                document.getElementById('noBtn').innerText = noTexts[noClickCount];
+                noClickCount++;
+            }
+        }
+
+        function celebrate() {
+            document.getElementById('mainContainer').innerHTML = `
+                <img src="https://media0.giphy.com/media/v1.Y2lkPTZjMDliOTUya2tjcTE2Z3d2d3N4ZjZkMnVtcXVrdjF0Nzd4YXd5dWVqYjVxeWZ0bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Z21HJj2kz9uBG/giphy.gif" alt="Yay!">
+                <h1 style="color: #d63384; font-size: 1.8rem;">Yayyy!I Love you Ju Ju! ❤️✨</h1>
+            `;
+        }
+    </script>
+
+</body>
+</html>
